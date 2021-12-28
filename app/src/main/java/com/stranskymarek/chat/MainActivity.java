@@ -22,10 +22,12 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.stranskymarek.chat.Fragments.ChatsFragment;
+import com.stranskymarek.chat.Fragments.ProfileFragment;
 import com.stranskymarek.chat.Fragments.UsersFragment;
 import com.stranskymarek.chat.Model.Users;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -60,6 +62,7 @@ public class MainActivity extends AppCompatActivity {
         ViewPagerAdapter viewPagerAdapter  = new ViewPagerAdapter(getSupportFragmentManager());
         viewPagerAdapter.addFragment(new ChatsFragment(), "Chats");
         viewPagerAdapter.addFragment(new UsersFragment(), "Users");
+        viewPagerAdapter.addFragment(new ProfileFragment(), "Profile");
 
         viewPager.setAdapter(viewPagerAdapter);
         tabLayout.setupWithViewPager(viewPager);
@@ -84,7 +87,6 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    // Class ViewPagerAdapter
     class ViewPagerAdapter extends FragmentPagerAdapter {
         private ArrayList<Fragment> fragments;
         private ArrayList<String> titles;
@@ -122,11 +124,24 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    private void checkStatus(String status) {
+        myRef = FirebaseDatabase.getInstance().getReference("MyUsers")
+                .child(firebaseUser.getUid());
 
+        HashMap<String, Object> hashMap = new HashMap<>();
+        hashMap.put("status", status);
+        myRef.updateChildren(hashMap);
+    }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        checkStatus("online");
+    }
 
-
-
-
-
+    @Override
+    protected void onPause() {
+        super.onPause();
+        stat
+    }
 }

@@ -9,8 +9,8 @@
 
     <ImageView
         android:id="@+id/userImageItem"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
         android:maxHeight="100dp"
         android:maxWidth="100dp"
         android:layout_marginStart="16dp"
@@ -33,6 +33,28 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/userImageItem"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/status_imageON"
+        android:layout_width="10dp"
+        android:layout_height="10dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/userImageItem"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/gradient_register" />
+
+    <ImageView
+        android:id="@+id/status_imageOFF"
+        android:layout_width="10dp"
+        android:layout_height="10dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/userImageItem"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/gradient_login" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

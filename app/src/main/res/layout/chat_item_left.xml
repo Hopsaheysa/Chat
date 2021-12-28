@@ -11,14 +11,25 @@
         android:src="@mipmap/ic_launcher"/>
 
     <TextView
+        android:id="@+id/message_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/message_text"
-        android:layout_marginLeft="5dp"
+        android:layout_marginStart="5dp"
+        android:layout_toEndOf="@+id/profile_image"
+        android:background="@drawable/background_left"
         android:padding="8dp"
         android:text="Hello"
-        android:textSize="18sp"
-        android:layout_toRightOf="@+id/profile_image"
-        android:background="@drawable/background_left"/>
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/txt_seen_status"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/message_text"
+        android:layout_alignStart="@+id/message_text"
+        android:text="TextView"
+        android:textSize="11sp"
+        android:textStyle="italic|bold"
+        android:visibility="gone" />
 
 </RelativeLayout>

@@ -80,8 +80,8 @@ public class MainActivity extends AppCompatActivity {
         switch (item.getItemId()) {
             case R.id.logout:
                 FirebaseAuth.getInstance().signOut();
-                startActivity(new Intent(MainActivity.this, Login_Activity.class));
-                finish();
+                startActivity(new Intent(MainActivity.this, Login_Activity.class)
+                        .setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP));
                 return true;
         }
         return super.onOptionsItemSelected(item);
@@ -142,6 +142,6 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onPause() {
         super.onPause();
-        stat
+        checkStatus("offline");
     }
 }
